@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { ReactNode } from "react";
 
-const MainNav = (): ReactNode => (
+const MainNav = () => (
   <div className="hidden md:flex items-center ml-auto space-x-6">
     <Link to="/sign-in" className="block font-bold text-[15px]">
       Log In

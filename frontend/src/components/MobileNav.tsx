@@ -9,9 +9,8 @@ import {
 import { Menu } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Link } from "react-router-dom";
-import { ReactNode } from "react";
 
-const MobileNav = (): ReactNode => {
+const MobileNav = () => {
   return (
     <Sheet>
       <SheetTrigger>
