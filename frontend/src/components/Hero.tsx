@@ -14,7 +14,7 @@ const Hero = () => {
             of your home. Order now and get fast delivery from top-rated
             restaurants.
           </p>
-          <div className="flex justify-center lg:justify-start w-full mt-7">
+          <div className="flex justify-center sm:justify-start w-full mt-7">
             <Link to="/sign-up">
               <button className="px-6 py-3 text-white rounded font-bold border-2 border-[#fea116dc] bg-[#FEA116] transition-all ease-in-out duration-300 hover:bg-transparent">
                 GET STARTED
@@ -23,7 +23,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2 mb-4 md:mb-0">
+        <div className="md:w-1/2 mb-4 md:mb-10">
           <img
             src={food}
             alt="Restaurant Image"

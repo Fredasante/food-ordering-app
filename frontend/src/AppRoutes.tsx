@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/layout";
-import Hero from "./components/Hero";
+import Homepage from "./pages/Homepage";
 
 const AppRoutes = () => {
   return (
@@ -9,7 +9,7 @@ const AppRoutes = () => {
         path="/"
         element={
           <Layout>
-            <Hero />
+            <Homepage />
           </Layout>
         }
       />
