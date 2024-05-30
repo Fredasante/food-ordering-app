@@ -9,7 +9,7 @@ const Layout = ({ children }: Props): JSX.Element => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="container mx-auto py-10">{children}</div>
+      {children}
     </div>
   );
 };
