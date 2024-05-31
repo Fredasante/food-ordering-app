@@ -3,7 +3,7 @@ import food from "../assets/food1.jpg";
 
 const Hero = () => {
   return (
-    <div className="py-8 md:py-12 container mx-auto bg-[#0F172B] text-gray-200 min-h-[45vh] xl:min-h-[75vh] flex justify-center">
+    <div className="py-8 md:py-12 container mx-auto bg-[#0F172B] text-gray-200 min-h-[45vh] xl:min-h-[75vh]">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="md:w-1/2 text-center md:text-left w-full">
           <h1 className="text-3xl md:text-4xl lg:5xl xl:text-6xl 2xl:7xl font-extrabold mb-7 font-nunito">
