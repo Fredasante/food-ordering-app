@@ -1,7 +1,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -27,17 +26,17 @@ const MobileNav = () => {
               : "Welcome to EpicEats"}
           </SheetTitle>
           <Separator />
-          <SheetDescription className="flex flex-col gap-4 !mt-5">
+          <div className="flex flex-col gap-4 !mt-5">
             {isAuthenticated ? (
               <MobileNavLinks />
             ) : (
               <div>
-                <p
+                <span
                   onClick={async () => await loginWithRedirect()}
                   className="block font-bold text-[15px] text-center w-full"
                 >
                   Log In
-                </p>
+                </span>
                 <button
                   onClick={async () => await loginWithRedirect()}
                   className="mt-5 px-4 w-full self-center py-2.5 text-sm text-white rounded font-bold border-2 border-[#fea116dc] bg-[#FEA116] transition-all ease-in-out duration-300"
@@ -46,7 +45,7 @@ const MobileNav = () => {
                 </button>
               </div>
             )}
-          </SheetDescription>
+          </div>
         </SheetHeader>
       </SheetContent>
     </Sheet>
