@@ -19,6 +19,6 @@ Epic Eats is built using the MERN stack:
 
 - User authentication and authorization
 - Restaurant browsing and filtering
-- Menu display with detailed item descdcriptions
+- Menu display with detailed item descriptions
 - Order management and tracking
 - Responsive design for a great user experience on all devices
