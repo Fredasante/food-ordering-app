@@ -19,16 +19,6 @@ Epic Eats is built using the MERN stack:
 
 - User authentication and authorization
 - Restaurant browsing and filtering
-- Menu display with detailed item descriptions
+- Menu display with detailed item descdcriptions
 - Order management and tracking
 - Responsive design for a great user experience on all devices
-
-## Setup and Installation
-
-To get a local copy of the project up and running, follow these steps:
-
-1. **Clone the repository:**
-
-   ```sh
-   git clone https://github.com/Fredasante/mern-food-ordering-app.git
-   ```
