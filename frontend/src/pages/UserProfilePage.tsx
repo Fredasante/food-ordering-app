@@ -8,9 +8,17 @@ const UserProfilePage = () => {
   if (isGetLoading) {
     return <div>Loading...</div>;
   }
+  if (!currentUser) {
+    return <div>User not found</div>;
+  }
+
   return (
     <div>
-      <UserProfileForm onSave={updateUser} isLoading={isUpdateLoading} />
+      <UserProfileForm
+        currentUser={currentUser}
+        onSave={updateUser}
+        isLoading={isUpdateLoading}
+      />
     </div>
   );
 };
