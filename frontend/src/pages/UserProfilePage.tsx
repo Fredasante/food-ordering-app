@@ -6,10 +6,14 @@ const UserProfilePage = () => {
   const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
 
   if (isGetLoading) {
-    return <div>Loading...</div>;
+    return <div className="container mx-auto min-h-[46vh]">Loading...</div>;
   }
   if (!currentUser) {
-    return <div>User not found</div>;
+    return (
+      <div className="container mx-auto min-h-[46vh]">
+        Unable to load user profile
+      </div>
+    );
   }
 
   return (
