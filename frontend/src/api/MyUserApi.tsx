@@ -23,13 +23,14 @@ export const useGetMyUser = () => {
     data: currentUser,
     isLoading,
     error,
+    refetch,
   } = useQuery("fetchCurrentUser", getMyUserRequest);
 
   if (error) {
     toast.error(error.toString());
   }
 
-  return { currentUser, isLoading };
+  return { currentUser, isLoading, error, refetch };
 };
 
 type createUserRequest = {
@@ -106,5 +107,5 @@ export const useUpdateMyUser = () => {
     reset();
   }
 
-  return { updateUser, isLoading, isSuccess };
+  return { updateUser, isLoading, isSuccess, error };
 };
