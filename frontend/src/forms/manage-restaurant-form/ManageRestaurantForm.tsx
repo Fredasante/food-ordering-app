@@ -5,6 +5,7 @@ import DetailsSection from "./DetailsSection";
 import { Form } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import CuisinesSection from "./CuisinesSection";
+import MenuSection from "./MenuSection";
 
 const formSchema = z.object({
   restaurantName: z.string({
@@ -65,6 +66,8 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
         <DetailsSection />
         <Separator />
         <CuisinesSection />
+        <Separator />
+        <MenuSection />
       </form>
     </Form>
   );

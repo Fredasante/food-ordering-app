@@ -16,7 +16,6 @@ const DetailsSection = () => {
     <section className="space-y-2">
       <div className="flex flex-col gap-4">
         <div>
-          {" "}
           <h2 className="text-2xl font-bold">Details</h2>
           <FormDescription>
             Enter details about your restaurant.
@@ -25,13 +24,13 @@ const DetailsSection = () => {
 
         <FormField
           control={control}
-          name="name"
+          name="restaurantName"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name of Restaurant</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Enter Name"
+                  placeholder="Enter Restaurant Name"
                   {...field}
                   className="bg-white"
                 />
