@@ -5,11 +5,14 @@ const MobileNavLinks = () => {
   const { logout } = useAuth0();
   return (
     <div>
-      <Link
-        to="/user-profile"
-        className="block font-bold text-[15px] text-center w-full"
-      >
+      <Link to="/user-profile" className="block font-bold text-center w-full">
         Profile
+      </Link>
+      <Link
+        to="/manage-restaurant"
+        className="block font-bold text-center w-full mt-3"
+      >
+        Manage Restaurant
       </Link>
       <button
         onClick={() => logout()}
