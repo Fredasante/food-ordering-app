@@ -1,11 +1,11 @@
 import {
   FormControl,
   FormDescription,
-  FormField,
+  // FormField,
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 
 const ImageSection = () => {
@@ -20,14 +20,15 @@ const ImageSection = () => {
           search results.
           <br />
           <span className="font-bold text-slate-800">NB: </span>Adding a new
-          Image will overwrite the existing one
+          image will overwrite the existing one.
         </FormDescription>
       </div>
 
       <div className="flex flex-col gap-8 w-[50%]">
-        <FormField
+        <Controller
           control={control}
           name="imageFile"
+          defaultValue={undefined}
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -35,7 +36,6 @@ const ImageSection = () => {
                   className="bg-white mt-3"
                   type="file"
                   accept="image/*"
-                  {...field}
                   onChange={(event) =>
                     field.onChange(
                       event.target.files ? event.target.files[0] : null

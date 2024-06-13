@@ -23,7 +23,7 @@ const CuisinesSection = () => {
 
         <FormField
           control={control}
-          name="cuisine" // Ensure this matches the field name in your form schema
+          name="cuisines" // Ensure this matches the field name in your form schema
           render={() => (
             <FormItem>
               <div className="grid md:grid-cols-5 gap-1">

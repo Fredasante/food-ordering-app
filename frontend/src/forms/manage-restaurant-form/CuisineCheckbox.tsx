@@ -9,7 +9,7 @@ type Props = {
 
 const CuisineCheckbox: React.FC<Props> = ({ cuisine, control }) => {
   const { field } = useController({
-    name: "cuisine", // This should match the array field name
+    name: "cuisines", // This should match the array field name
     control,
     defaultValue: [], // Default value should be an array
   });
