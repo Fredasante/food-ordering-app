@@ -7,14 +7,16 @@ import {
 } from "@/components/ui/form";
 import { useFormContext, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ImageSection = () => {
-  const { control } = useFormContext();
+  const { control, watch } = useFormContext();
+  const existingImageUrl = watch("imageUrl");
 
   return (
     <section className="space-y-2">
       <div>
-        <h2 className="text-2xl font-bold">Image</h2>
+        <h2 className="text-2xl font-bold mb-2">Image</h2>
         <FormDescription>
           Add an image that will be displayed on your restaurant listing in the
           search results.
@@ -24,7 +26,16 @@ const ImageSection = () => {
         </FormDescription>
       </div>
 
-      <div className="flex flex-col gap-8 w-[50%]">
+      <div className="flex flex-col gap-8 md:w-[50%]">
+        {existingImageUrl && (
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src={existingImageUrl}
+              alt="Image"
+              className="rounded-md object-cover h-full w-full mt-4"
+            />
+          </AspectRatio>
+        )}
         <Controller
           control={control}
           name="imageFile"
