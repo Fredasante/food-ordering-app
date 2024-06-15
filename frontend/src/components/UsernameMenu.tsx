@@ -28,12 +28,12 @@ const UsernameMenu = () => {
         <DropdownMenuContent className="px-2">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <Link to="/user-profile">Profile</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link to="/manage-restaurant">Manage Restaurant</Link>
-          </DropdownMenuItem>
+          <Link to="/user-profile">
+            <DropdownMenuItem>Profile </DropdownMenuItem>
+          </Link>
+          <Link to="/manage-restaurant">
+            <DropdownMenuItem>Manage Restaurant </DropdownMenuItem>
+          </Link>
           <DropdownMenuItem>
             <button
               onClick={() => logout()}
