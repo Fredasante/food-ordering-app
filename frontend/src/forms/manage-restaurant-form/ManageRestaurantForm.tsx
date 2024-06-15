@@ -11,35 +11,43 @@ import { Button } from "@/components/ui/button";
 import { Restaurant } from "@/types";
 import { useEffect } from "react";
 
-const formSchema = z.object({
-  restaurantName: z.string({
-    required_error: "Please enter a restaurant name",
-  }),
-  city: z.string({
-    required_error: "Please enter a city",
-  }),
-  country: z.string({
-    required_error: "Please enter a country",
-  }),
-  deliveryPrice: z.coerce.number({
-    required_error: "Please enter a delivery price",
-    invalid_type_error: "Please enter a valid number",
-  }),
-  estimatedDeliveryTime: z.coerce.number({
-    required_error: "Please enter an estimated delivery time",
-    invalid_type_error: "Please enter a valid number",
-  }),
-  cuisines: z.array(z.string()).nonempty({
-    message: "Please select at least one cuisine",
-  }),
-  menuItems: z.array(
-    z.object({
-      name: z.string().min(1, "Please enter a menu item name"),
-      price: z.coerce.number().min(1, "Please enter a valid price"),
-    })
-  ),
-  imageFile: z.instanceof(File, { message: "Please upload an image" }),
-});
+const formSchema = z
+  .object({
+    restaurantName: z.string({
+      required_error: "Please enter a restaurant name",
+    }),
+    city: z.string({
+      required_error: "Please enter a city",
+    }),
+    country: z.string({
+      required_error: "Please enter a country",
+    }),
+    deliveryPrice: z.coerce.number({
+      required_error: "Please enter a delivery price",
+      invalid_type_error: "Please enter a valid number",
+    }),
+    estimatedDeliveryTime: z.coerce.number({
+      required_error: "Please enter an estimated delivery time",
+      invalid_type_error: "Please enter a valid number",
+    }),
+    cuisines: z.array(z.string()).nonempty({
+      message: "Please select at least one cuisine",
+    }),
+    menuItems: z.array(
+      z.object({
+        name: z.string().min(1, "Please enter a menu item name"),
+        price: z.coerce.number().min(1, "Please enter a valid price"),
+      })
+    ),
+    imageUrl: z.string().optional(),
+    imageFile: z
+      .instanceof(File, { message: "Please upload an image" })
+      .optional(),
+  })
+  .refine((data) => data.imageFile || data.imageUrl, {
+    message: "Please upload an image",
+    path: ["imageFile"],
+  });
 
 type RestaurantFormData = z.infer<typeof formSchema>;
 
@@ -108,7 +116,9 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
         (menuItem.price * 100).toString()
       );
     });
-    formData.append("imageFile", formDataJson.imageFile);
+    if (formDataJson.imageFile) {
+      formData.append("imageFile", formDataJson.imageFile);
+    }
     onSave(formData);
   };
 
