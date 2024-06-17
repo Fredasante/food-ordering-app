@@ -17,7 +17,7 @@ export type SearchForm = z.infer<typeof formSchema>;
 type Props = {
   onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
-  onReset: () => void;
+  onReset?: () => void;
 };
 
 const SearchBar = ({ onReset, onSubmit, placeHolder }: Props) => {
@@ -75,7 +75,10 @@ const SearchBar = ({ onReset, onSubmit, placeHolder }: Props) => {
             Clear
           </Button>
         )}
-        <Button type="submit" className="rounded-full bg-[#fea116dc]">
+        <Button
+          type="submit"
+          className="rounded-full bg-[#fea116dc] hover:bg-yellow-500"
+        >
           Search
         </Button>
       </form>
