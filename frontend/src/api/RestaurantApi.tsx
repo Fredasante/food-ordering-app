@@ -14,9 +14,11 @@ export const useSearchRestaurants = (city?: string) => {
     return response.json();
   };
   const { data: results, isLoading } = useQuery(
-    ["searchRestaurants"],
+    ["searchRestaurants", city],
     createSearchRequest,
-    { enabled: !!city }
+    {
+      enabled: !!city,
+    }
   );
 
   return { results, isLoading };

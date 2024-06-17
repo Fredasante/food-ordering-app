@@ -15,8 +15,6 @@ const SearchPage = () => {
     );
   }
 
-  console.log(results?.data);
-
   if (isLoading) {
     return (
       <div className="container mx-auto pt-7 min-h-screen">Loading...</div>
@@ -28,7 +26,7 @@ const SearchPage = () => {
       <section id="cuisines-list">Insert cuisines list here</section>
       <section id="main-content" className="flex flex-col gap-5">
         <SearchResultsInfo total={results.pagination.total} city={city} />
-        {results.data.map((restaurant) => (
+        {results?.data.map((restaurant) => (
           <SearchResultsCard key={restaurant._id} restaurant={restaurant} />
         ))}
       </section>
