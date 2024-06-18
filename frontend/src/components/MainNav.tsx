@@ -12,7 +12,7 @@ const MainNav = () => {
           <button className="block font-bold text-[15px]">About Us</button>
           <button
             onClick={async () => await loginWithRedirect()}
-            className="px-4 py-2.5 text-sm text-white rounded font-bold border-2 border-[#fea116dc] bg-[#FEA116] transition-all ease-in-out duration-300 hover:bg-transparent"
+            className="px-4 py-2.5 text-sm text-white rounded font-bold border-2 border-[#102C57] bg-[#102C57] transition-all ease-in-out duration-300 hover:bg-[#282f3b]"
           >
             Log In
           </button>
