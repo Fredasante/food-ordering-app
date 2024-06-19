@@ -2,13 +2,15 @@ import { CartItem } from "@/pages/DetailPage";
 import { Restaurant } from "@/types";
 import { Link } from "react-router-dom";
 import { Badge } from "./ui/badge";
+import { Trash2 } from "lucide-react";
 
 type Props = {
   restaurant: Restaurant;
   cartItems: CartItem[];
+  removeFromCart: (cartItemId: CartItem) => void;
 };
 
-const OrderSummary = ({ restaurant, cartItems }: Props) => {
+const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
   const getTotalCost = () => {
     const totalInPesewas = cartItems.reduce(
       (total, cartItem) => total + cartItem.price * cartItem.quantity,
@@ -29,7 +31,11 @@ const OrderSummary = ({ restaurant, cartItems }: Props) => {
               {cartItem.name}
             </div>
             <span className="ml-auto font-bold">
-              GH₵{((cartItem.price * cartItem.quantity) / 100).toFixed(2)}
+              <Trash2
+                className="cursor-pointer inline-block w-4 h-4 mr-2 text-red-600"
+                onClick={() => removeFromCart(cartItem)}
+              />
+              GH₵ {((cartItem.price * cartItem.quantity) / 100).toFixed(2)}
             </span>
           </li>
         ))}

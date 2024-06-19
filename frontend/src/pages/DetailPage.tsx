@@ -50,6 +50,16 @@ const DetailPage = () => {
     });
   };
 
+  const removeFromCart = (cartItemId: CartItem) => {
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = prevCartItems.filter(
+        (item) => item._id !== cartItemId._id
+      );
+
+      return updatedCartItems;
+    });
+  };
+
   if (isLoading || !restaurant) {
     return (
       <div className="container mx-auto min-h-screen mt-7 flex justify-center">
@@ -86,7 +96,11 @@ const DetailPage = () => {
             ))}
           </div>
 
-          <OrderSummary restaurant={restaurant} cartItems={cartItems} />
+          <OrderSummary
+            restaurant={restaurant}
+            cartItems={cartItems}
+            removeFromCart={removeFromCart}
+          />
         </div>
       </div>
     </div>
