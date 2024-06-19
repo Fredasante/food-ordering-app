@@ -6,6 +6,7 @@ import MenuItem from "@/components/MenuItem";
 import { useState } from "react";
 import OrderSummary from "@/components/OrderSummary";
 import { MenuItem as MenuItemTypes } from "@/types";
+import CheckoutButton from "@/components/CheckoutButton";
 
 export type CartItem = {
   _id: string;
@@ -18,7 +19,10 @@ const DetailPage = () => {
   const { restaurantId } = useParams();
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
 
   const addToCart = (menuItem: MenuItemTypes) => {
     setCartItems((prevCartItems) => {
@@ -46,6 +50,11 @@ const DetailPage = () => {
         ];
       }
 
+      sessionStorage.setItem(
+        `cartItems-${restaurantId}`,
+        JSON.stringify(updatedCartItems)
+      );
+
       return updatedCartItems;
     });
   };
@@ -54,6 +63,11 @@ const DetailPage = () => {
     setCartItems((prevCartItems) => {
       const updatedCartItems = prevCartItems.filter(
         (item) => item._id !== cartItemId._id
+      );
+
+      sessionStorage.setItem(
+        `cartItems-${restaurantId}`,
+        JSON.stringify(updatedCartItems)
       );
 
       return updatedCartItems;
@@ -96,11 +110,14 @@ const DetailPage = () => {
             ))}
           </div>
 
-          <OrderSummary
-            restaurant={restaurant}
-            cartItems={cartItems}
-            removeFromCart={removeFromCart}
-          />
+          <div>
+            <OrderSummary
+              restaurant={restaurant}
+              cartItems={cartItems}
+              removeFromCart={removeFromCart}
+            />
+            <CheckoutButton />
+          </div>
         </div>
       </div>
     </div>
