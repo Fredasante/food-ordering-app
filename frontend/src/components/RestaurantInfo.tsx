@@ -6,7 +6,7 @@ type Props = {
 
 const RestaurantInfo = ({ restaurant }: Props) => {
   return (
-    <div className="flex mb-6 gap-4 bg-white px-4 py-6 rounded-md shadow-[0_2px_12px_-3px_rgba(6,81,237,0.2)]">
+    <div className="flex mb-7 gap-4 bg-white px-4 py-6 rounded-md shadow-[0_2px_12px_-3px_rgba(6,81,237,0.2)]">
       <div className="flex gap-4">
         <div className="flex flex-col gap-4">
           <div>
