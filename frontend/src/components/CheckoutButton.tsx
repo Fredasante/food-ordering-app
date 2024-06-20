@@ -10,9 +10,10 @@ import { useGetMyUser } from "@/api/MyUserApi";
 type Props = {
   onCheckout: (userFormData: UserFormData) => void;
   disabled: boolean;
+  isLoading: boolean;
 };
 
-const CheckoutButton = ({ onCheckout, disabled }: Props) => {
+const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   const { currentUser, isLoading: isGetUserLoading } = useGetMyUser();
   const {
     isAuthenticated,
@@ -34,16 +35,12 @@ const CheckoutButton = ({ onCheckout, disabled }: Props) => {
         <button
           disabled={disabled}
           onClick={onLogin}
-          type="button"
           className="mb-4 text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md"
         >
           Login to Checkout
         </button>
         <Link to="/" className="">
-          <button
-            type="button"
-            className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md"
-          >
+          <button className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md">
             Explore More Restaurants
           </button>
         </Link>
@@ -51,7 +48,7 @@ const CheckoutButton = ({ onCheckout, disabled }: Props) => {
     );
   }
 
-  if (isAuthLoading || !currentUser) {
+  if (isAuthLoading || !currentUser || isLoading) {
     return <LoadingButton />;
   }
 
