@@ -7,6 +7,7 @@ import { useState } from "react";
 import OrderSummary from "@/components/OrderSummary";
 import { MenuItem as MenuItemTypes } from "@/types";
 import CheckoutButton from "@/components/CheckoutButton";
+import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 
 export type CartItem = {
   _id: string;
@@ -74,6 +75,10 @@ const DetailPage = () => {
     });
   };
 
+  const onCheckout = (userFormData: UserFormData) => {
+    console.log({ userFormData, cartItems });
+  };
+
   if (isLoading || !restaurant) {
     return (
       <div className="container mx-auto min-h-screen mt-7 flex justify-center">
@@ -116,7 +121,10 @@ const DetailPage = () => {
               cartItems={cartItems}
               removeFromCart={removeFromCart}
             />
-            <CheckoutButton />
+            <CheckoutButton
+              disabled={cartItems.length === 0}
+              onCheckout={onCheckout}
+            />
           </div>
         </div>
       </div>

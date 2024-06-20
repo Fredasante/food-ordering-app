@@ -1,6 +1,5 @@
 import { CartItem } from "@/pages/DetailPage";
 import { Restaurant } from "@/types";
-import { Link } from "react-router-dom";
 import { Badge } from "./ui/badge";
 import { Trash2 } from "lucide-react";
 

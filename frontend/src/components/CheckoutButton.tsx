@@ -1,10 +1,19 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link, useLocation } from "react-router-dom";
 import LoadingButton from "./LoadingButton";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import UserProfileForm, {
+  UserFormData,
+} from "@/forms/user-profile-form/UserProfileForm";
+import { useGetMyUser } from "@/api/MyUserApi";
 
-type Props = {};
+type Props = {
+  onCheckout: (userFormData: UserFormData) => void;
+  disabled: boolean;
+};
 
-const CheckoutButton = ({}: Props) => {
+const CheckoutButton = ({ onCheckout, disabled }: Props) => {
+  const { currentUser, isLoading: isGetUserLoading } = useGetMyUser();
   const {
     isAuthenticated,
     isLoading: isAuthLoading,
@@ -23,6 +32,7 @@ const CheckoutButton = ({}: Props) => {
     return (
       <div className="mt-8 space-y-2">
         <button
+          disabled={disabled}
           onClick={onLogin}
           type="button"
           className="mb-4 text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md"
@@ -41,28 +51,32 @@ const CheckoutButton = ({}: Props) => {
     );
   }
 
-  if (isAuthLoading) {
+  if (isAuthLoading || !currentUser) {
     return <LoadingButton />;
   }
 
   return (
     <>
-      <div className="mt-8 space-y-2">
-        <button
-          type="button"
-          className="mb-4 text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md"
-        >
-          Go To Checkout
-        </button>
-        <Link to="/" className="">
-          <button
-            type="button"
-            className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md"
-          >
-            Explore More Restaurants
+      <Dialog>
+        <DialogTrigger asChild>
+          <button className="mb-4 text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md">
+            Go To Checkout
           </button>
-        </Link>
-      </div>
+        </DialogTrigger>
+        <DialogContent className="max-w-[425px] md:min-w-[700px]">
+          <UserProfileForm
+            currentUser={currentUser}
+            onSave={onCheckout}
+            isLoading={isGetUserLoading}
+          />
+        </DialogContent>
+      </Dialog>
+
+      <Link to="/" className="">
+        <button className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md">
+          Explore More Restaurants
+        </button>
+      </Link>
 
       <div className="mt-4 flex flex-wrap justify-center gap-4">
         <img
