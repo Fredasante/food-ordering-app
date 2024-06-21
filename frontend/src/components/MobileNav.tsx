@@ -31,9 +31,6 @@ const MobileNav = () => {
               <MobileNavLinks />
             ) : (
               <div>
-                <span className="block font-bold text-[15px] text-center w-full">
-                  About Us
-                </span>
                 <button
                   onClick={async () => await loginWithRedirect()}
                   className="mt-5 px-4 w-full self-center py-2.5 text-sm text-white rounded font-bold border-2 border-[#fea116dc] bg-[#FEA116] transition-all ease-in-out duration-300"

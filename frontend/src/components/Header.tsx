@@ -5,8 +5,8 @@ import logo from "/vite.svg";
 
 const Header = () => {
   return (
-    <header className="flex border-b shadow-sm py-4 px-4 sm:px-10 text-[#0F172B] font-sans min-h-[70px] container relative z-50">
-      <div className="flex flex-wrap items-center justify-center gap-4 w-full">
+    <header className="flex w-full justify-between border-b shadow-sm py-4 px-4 sm:px-10 text-[#0F172B] font-sans min-h-[70px] container relative z-50">
+      <div className="flex flex-wrap items-center gap-4 w-full">
         <Link
           className="md:text-3xl text-xl font-bold flex items-center gap-2"
           to="/"
