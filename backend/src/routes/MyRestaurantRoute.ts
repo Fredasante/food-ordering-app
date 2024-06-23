@@ -18,6 +18,13 @@ router.get(
   MyRestaurantController.getMyRestaurantOrders
 );
 
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.updateOrderStatus
+);
+
 router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
 
 router.post(
