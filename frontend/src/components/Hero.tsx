@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-import food from "../assets/food2.jpg";
+import { useAuth0 } from "@auth0/auth0-react";
+import food from "../assets/food7.jpg";
 
 const Hero = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div className="py-8 md:py-12 container mx-auto min-h-[45vh] xl:min-h-[75vh] bg-gray-50">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -15,11 +17,12 @@ const Hero = () => {
             restaurants.
           </p>
           <div className="flex justify-center sm:justify-start w-full mt-7">
-            <Link to="/sign-up">
-              <button className="px-6 py-3 text-white rounded font-bold border-[#fea116dc] bg-[#1679AB] transition-all ease-in-out duration-300 hover:bg-[#3a7694]">
-                GET STARTED
-              </button>
-            </Link>
+            <button
+              onClick={async () => await loginWithRedirect()}
+              className="px-6 py-3 text-white rounded font-bold border-[#fea116dc] bg-[#1679AB] transition-all ease-in-out duration-300 hover:bg-[#3a7694]"
+            >
+              GET STARTED
+            </button>
           </div>
         </div>
 

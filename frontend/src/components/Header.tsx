@@ -8,10 +8,10 @@ const Header = () => {
     <header className="flex w-full justify-between border-b shadow-sm py-4 px-4 sm:px-10 text-[#0F172B] font-sans min-h-[70px] container relative z-50">
       <div className="flex flex-wrap items-center gap-4 w-full">
         <Link
-          className="md:text-3xl text-xl font-bold flex items-center gap-2"
+          className="md:text-[22px] text-xl font-bold flex items-center gap-2"
           to="/"
         >
-          <img src={logo} alt="logo" className="w-7 h-7 md:w-8 md:h-8" />
+          <img src={logo} alt="logo" className="w-7 h-7" />
           <span>EpicEats</span>
         </Link>
 

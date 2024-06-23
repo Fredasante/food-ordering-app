@@ -1,7 +1,9 @@
 import React from "react";
 import food from "../assets/food3.jpg";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const HomeAbout: React.FC = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <div className="relative">
       <div className="container mx-auto shadow-md flex flex-col lg:flex-row items-center justify-between py-16 px-4 lg:px-8">
@@ -21,10 +23,16 @@ const HomeAbout: React.FC = () => {
             bite or a gourmet meal, we have it all.
           </p>
           <div className="mt-8 flex space-x-4">
-            <button className="bg-[#fea116dc] text-white py-3 px-6 rounded-md text-sm font-semibold uppercase transition-all hover:bg-yellow-600">
-              Our Meals
+            <button
+              onClick={async () => await loginWithRedirect()}
+              className="bg-[#fea116dc] text-white py-3 px-6 rounded-md text-sm font-semibold uppercase transition-all hover:bg-yellow-600"
+            >
+              Manage Restaurant
             </button>
-            <button className="text-white bg-[#0F172B] py-3 px-6 rounded-md text-sm font-semibold uppercase transition-all hover:bg-[#2c2f3a]">
+            <button
+              onClick={async () => await loginWithRedirect()}
+              className="text-white bg-[#0F172B] py-3 px-6 rounded-md text-sm font-semibold uppercase transition-all hover:bg-[#2c2f3a]"
+            >
               Order A Meal
             </button>
           </div>
