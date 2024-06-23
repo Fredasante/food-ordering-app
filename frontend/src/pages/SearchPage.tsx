@@ -66,7 +66,9 @@ const SearchPage = () => {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto pt-7 min-h-screen">Loading...</div>
+      <div className="container mx-auto pt-7 min-h-screen flex justify-center">
+        Loading...
+      </div>
     );
   }
 

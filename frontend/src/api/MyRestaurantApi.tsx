@@ -59,7 +59,7 @@ export const useCreateMyRestaurant = () => {
     toast.success("Restaurant created successfully");
   }
   if (error) {
-    toast.error(error.toString());
+    toast.error("Failed to create restaurant");
   }
 
   return { createRestaurant, isLoading, error };
@@ -96,7 +96,7 @@ export const useUpdateMyRestaurant = () => {
     toast.success("Restaurant updated successfully");
   }
   if (error) {
-    toast.error(error.toString());
+    toast.error("Failed to update restaurant");
   }
 
   return { updateRestaurant, isLoading, error };
