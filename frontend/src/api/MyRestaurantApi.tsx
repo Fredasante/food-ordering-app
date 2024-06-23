@@ -139,7 +139,7 @@ export const useUpdateMyRestaurantOrder = () => {
     const accessToken = await getAccessTokenSilently();
 
     const response = await fetch(
-      `${API_BASE_URL}api/my/restaurant/order/${updateOrderStatusRequest.orderId}/status`,
+      `${API_BASE_URL}/api/my/restaurant/order/${updateOrderStatusRequest.orderId}/status`,
       {
         method: "PATCH",
         headers: {
