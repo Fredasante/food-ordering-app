@@ -27,7 +27,6 @@ cd food-ordering-app
     # Auth0 Configuration
     AUTH0_AUDIENCE=
     AUTH0_ISSUER_BASE_URL=
-    FRONTEND_URL=
 
     # Cloudinary Variables
     CLOUDINARY_CLOUD_NAME=
