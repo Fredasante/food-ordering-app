@@ -1,6 +1,6 @@
 # Setting Up Epic Eats
 
-This guide will walk you through the process of setting up epic eats on your local machine.
+This guide will walk you through the process of setting up epic eats on your local machine, a food ordering app.
 
 ## Prerequisites
 
