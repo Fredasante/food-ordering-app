@@ -59,7 +59,7 @@ const CuisineFilter = ({
                 />
                 <Label
                   htmlFor={`cuisine_${cuisine}`}
-                  className={`flex flex-1 items-center text-sm cursor-pointer rounded-full px-4 py-2 font-semibold ${
+                  className={`flex flex-1 items-center text-sm cursor-pointer rounded-full px-5 py-2 font-semibold ${
                     isSelected
                       ? "border border-green-600 text-green-600"
                       : "border border-slate-300 text-gray-600"
@@ -75,7 +75,7 @@ const CuisineFilter = ({
         <Button
           variant="link"
           onClick={onExpandedClick}
-          className="mt-4 flex-1"
+          className="mt-5 flex-1"
         >
           {isExpanded ? (
             <span className="flex items-center">
